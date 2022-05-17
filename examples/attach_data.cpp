@@ -12,7 +12,7 @@ int main(){
 
   // create a task and attach it the data
   auto A = taskflow.placeholder();
-  A.data(&data).work([A](){
+  A.data(&data).work([&A](){
     auto d = *static_cast<int*>(A.data());
     std::cout << "data is " << d << std::endl;
   });
